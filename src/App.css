@@ -1,38 +1,219 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+.App{
+  height: 100vh;
+  width: 100%;
+  overflow-y: hidden;
+  font-family: 'Raleway', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weatherapp{
+  height: 100%;
+  width: 100%;
+  background: rgb(149,24,176);
+  background: linear-gradient(24deg, rgba(149,24,176,1) 0%, rgba(36,20,133,1) 100%);
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sunny{
+  background: url(https://images.unsplash.com/photo-1588526779453-57a0d3d15963?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80) center center;
+  background-size: cover;
+  box-shadow: inset 3px 3px 100px rgba(188, 255, 246, 0.6);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cloudy{
+  background: url(https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=389&q=80) center center;
+  background-size: cover;
+  box-shadow: inset 3px 3px 100px rgba(0, 0, 0, 0.6);
+}
+
+.rainy{
+  background: url(https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80) center center;
+  background-size: cover;
+}
+
+.searchbar{
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid aliceblue;
+  padding: 0.2rem;
+  outline: none;
+  z-index: 10;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: rgb(219, 219, 219);
+}
+
+input::placeholder{
+  color: rgb(219, 219, 219);
+}
+
+.searchbar h4{
+  color: rgb(195, 233, 255);
+}
+
+.fas{
+  font-size: 1.4rem;
+  margin-right: 0.35rem;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.iconify{
+  font-size: 1.7rem;
+}
+
+.weats{
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.weats h1{
+  color: rgb(214, 255, 241);
+  text-transform: uppercase;
+}
+
+.cloud, .sun{
+  position: relative;
+}
+
+.cloud::before{
+  position: absolute;
+  left: 0%;
+  top: 0;
+  bottom: 0%;
+  right: 0%;
+  content: "\f0c2";
+  font-family: 'FontAwesome';
+}
+
+.sun::before{
+  content: "\f185";
+  position: absolute;
+  left: 0%;
+  top: 0;
+  bottom: 0%;
+  right: 0%;
+  font-family: 'FontAwesome';
+}
+
+.error h2{
+  color: aliceblue;
+}
+
+.error{
+  display: none;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  content: "\2103";
+}
+
+.weather{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.1);
+}
+
+.symbol, .details{
+  padding: 0.8rem;
+  font-size: 1.7em;
+  color: aliceblue;
+}
+
+.minmaxdetails{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.minmax{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(5px);
+  padding: 0.3rem 0rem;
+  border-radius: 5px;
+}
+
+.mintemp, .maxtemp{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  color: rgb(213, 235, 255);
+}
+
+.other{
+  height: 40%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.feels, .humidity, .pressure, .wind{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 15%;
+  border-bottom: 1px solid rgb(98, 124, 148);
+  padding: 1rem;
+  padding-bottom: 2rem;
+  color: rgb(213, 235, 255);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.feels,.pressure{
+  border-right: 1px solid rgb(98, 124, 148);
+}
+
+.credit{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.extras{
+  position: absolute;
+  bottom: -63%;
+  left: 0%;
+  width: 100%;
+  height: 70%;
+  background-color: aliceblue;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 1px 1px 18px rgba(16, 9, 54, 0.7);
+  transition: bottom 0.4s ease;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.expandextra{
+  bottom: 0%;
+  transition: bottom 0.4s ease;
 }
