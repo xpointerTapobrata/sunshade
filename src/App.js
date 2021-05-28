@@ -16,7 +16,7 @@ const signal = ac.signal;
 const api = '2e33d4213761841b4f06a23688654348'
 
 const fetchweather = async () => {
-    const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updated}&units=metric&appid=${api}`, { signal : signal })
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${updated}&units=metric&appid=${api}`, { signal : signal })
     const data =  await res.json();
     setweatherdata(data)
     console.log(weatherdata)
